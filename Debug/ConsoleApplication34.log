@@ -1,0 +1,5 @@
+﻿  ConsoleApplication34.cpp
+C:\Users\Мария\source\repos\ConsoleApplication34\ConsoleApplication34\ConsoleApplication34.cpp(6,15): warning C4101: k: неиспользованная локальная переменная
+C:\Users\Мария\source\repos\ConsoleApplication34\ConsoleApplication34\ConsoleApplication34.cpp(6,24): warning C4101: j: неиспользованная локальная переменная
+C:\Users\Мария\source\repos\ConsoleApplication34\ConsoleApplication34\ConsoleApplication34.cpp(6,22): warning C4101: l: неиспользованная локальная переменная
+  ConsoleApplication34.vcxproj -> C:\Users\Мария\source\repos\ConsoleApplication34\Debug\ConsoleApplication34.exe
