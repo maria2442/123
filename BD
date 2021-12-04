@@ -88,3 +88,171 @@ int main()
     Students n;
     //n.show();
 }
+
+/*
+class TSt {
+public:
+    string pupils[100][10];
+    string zag[10];
+    //vector<vector<string>> pupils;
+    int zag1[10];
+    int col, str;
+    void newst();
+    void delst();
+    void show();
+    void showall();
+    void newcol();
+    void delcol();
+    TSt();
+};
+TSt::TSt()
+{
+    ifstream Fin;
+    int i = 1;
+    Fin.open("students.txt");
+    string a, b = "";
+    zag[0] = "FIO";
+    zag[1] = "AGE";
+    zag[2] = "Class";
+    zag1[0] = 35;
+    zag1[1] = 5;
+    zag1[2] = 5;
+    while (!Fin.eof())
+    {
+        b = "";
+        //cout<<i;
+        Fin >> a;
+        b = b + " " + a;
+        Fin >> a;
+        b = b + " " + a;
+        Fin >> a;
+        b = b + " " + a;
+        //cout<<b;
+        pupils[i][0] = b;
+        Fin >> pupils[i][1];
+        Fin >> pupils[i][2];
+        i++;
+    }
+    Fin.close();
+    col = 3;
+    str = i-1;
+}
+protected
+void TSt::newst()
+{
+    string st,b,a;
+    cout << endl << "Enter FIO" << endl; ;
+    cin >> a;
+    b = b + " " + a;
+    cin >> a;
+    b = b + " " + a;
+    cin >> a;
+    b = b + " " + a;
+    pupils[str][0] = b;
+    for (int k = 1; k < col; k++)
+    {
+        cout << endl << "Enter " << zag[k] << endl;
+        cin >> st;
+        pupils[str][k] = st;
+    }
+    str++;
+}
+void TSt::delst()
+{
+    int n,k;
+    cout << endl << "Enter num" << endl;
+    cin >> n;
+    while (n <= str)
+    {
+        for (int j = 0; j < col; j++)
+            pupils[n][j] = pupils[n + 1][j];
+        n++;
+        str--;
+    }
+}
+void TSt::show()
+{
+    int n;
+    cin >> n;
+    for (int i = 0; i < col; i++)
+    {
+        for (int k = zag[i].size(); k <= zag1[i]; k++)
+        {
+            cout << " ";
+        }
+        cout << zag[i] << " | ";
+    }
+    cout << endl;
+    for (int i = 0; i <col; i++)
+    {
+        for (int k = pupils[n][i].size(); k <= zag1[i]; k++)
+                cout << " ";
+            cout << pupils[n][i] << " | ";
+
+    }
+    cout << endl;
+
+}
+void TSt::newcol()
+{
+    cout << "enter name of columns" << endl;
+    string nc,b;
+    int i,t,a;
+    cin >> nc;
+    zag[col] = nc;
+
+    cout << "enter kletocki" << endl;
+    cin >> i;
+    cout << "if if" << endl;
+    cin >> t;
+    zag1[col] = i;
+
+    if (t == 1)
+    {
+        for (int j = 1; j <= str; j++)
+        {
+            cout << "For " << pupils[j][0] << endl;
+            cin >> a;
+            pupils[j][col] = a;
+        }
+    }
+    if (t == 2)
+    {
+        for (int j = 1; j <= str; j++)
+        {
+            cout << "For " << pupils[j][0] << endl;
+            cin >> b;
+            pupils[j][col] = b;
+        }
+
+    }
+    col++;
+}
+void TSt::delcol()
+{
+    int n, k;
+    cout << endl << "Enter num" << endl;
+    cin >> n;
+    n--;
+    while (n < col-1)
+    {
+        zag[n] = zag[n + 1];
+        zag1[n] = zag1[n + 1];
+        for (int j = 1; j <= str; j++)
+            pupils[j][n] = pupils[j][n+1];
+        n++;
+
+    }
+    col--;
+}
+
+int main()
+{
+    int a = 5;
+    TSt M;
+    M.showall();
+    //M.newst();
+    M.delcol();
+    //M.delst();
+    M.showall();
+}*/
