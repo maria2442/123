@@ -6,37 +6,56 @@ using namespace std;
 
 class Table{
 public:
-    vector <vector <string> > tab[10][10];
-    //int tab[100][100];
-    int col,str;
+    vector <vector <string> > tab;
+    int col,str=0;
     int zag1[100];
     string zag[100];
     virtual void newst()=0;
-    //void delst();
+    void delst();
     void show();
+
 };
+void Table::delst()
+{
+    int n,k;
+    cout << endl << "Enter num" << endl;
+    cin >> n;
+    n--;
+    while (n <= str-1)
+    {
+        for (int j = 0; j < col; j++)
+            tab[n][j] = tab[n + 1][j];
+        n++;
+    }
+    str--;
+}
 void Table::show()
 {
-    int n;
-    cin >> n;
-    for (int i = 0; i < col; i++)
+    string h="";
+    for (int i = 0; i <= col; i++)
     {
+
         for (int k = zag[i].size(); k <= zag1[i]; k++)
         {
             cout << " ";
+            h = h + "-";
         }
+        for (int j = 0; j < zag[i].size(); j++)
+            h = h + "-";
         cout << zag[i] << " | ";
+        h = h + "---";
     }
-    cout << endl;
-    for (int i = 0; i <col; i++)
+    cout<<endl<<h<<endl;
+    for (int i = 0; i < str; i++)
     {
-        for (int k = tab[n][i].size(); k <= zag1[i]; k++)
+        for (int j = 0; j <= col; j++)
+        {
+            for (int k = tab[i][j].size(); k <= zag1[j]; k++)
                 cout << " ";
-            cout << tab[n][i] << " | ";
-
+            cout << tab[i][j]<<" | ";
+        }
+        cout << endl << h << endl;
     }
-    cout << endl;
-
 }
 class Students: public Table
 {
@@ -46,47 +65,83 @@ class Students: public Table
 };
 Students::Students()
 {
-    zag[0]="";zag1[0]=20;
-    zag[1]="";zag1[1]=20;
-    zag[2]="";zag1[2]=20;
-    zag[3]="";zag1[3]=3;
-    zag[4]="";zag1[4]=3;
+    zag[0]="123";zag1[0]=20;
+    zag[1]="321";zag1[1]=20;
+    zag[2]="111";zag1[2]=20;
+    zag[3]="222";zag1[3]=3;
+    zag[4]="333";zag1[4]=3;
     ifstream fin;
+    col=5;
     int i = 0;
     string a;
-
     fin.open("students.txt");
     while (!fin.eof())
     {
+        vector <string> vec;
         for(int j=0;j<5;j++)
         {
             fin>>a;
-            cout<<endl<<i<<endl<<tab.size()<<endl;
-            if(i<tab.size())
-            {
-                cout<<"++";
-                tab[i].push_back(a);
-            }
+            vec.push_back(a);
+
         }
+        tab.push_back(vec);
         i++;
     }
     fin.close();
     col = 4;
-    str = i-1;
+    str = i;
 }
 void Students::newst()
 {
+    vector <string> vec;
     string a;
+    cout<<"name"<<endl;
     for(int j=0;j<5;j++)
-        cin>>tab[str][j];
+    {
+        cin>>a;
+        vec.push_back(a);
+    }
+    tab.push_back(vec);
     str++;
 }
+class Subjects: public Table
+{
+   public:
+    void newst();
+    Subjects();
+};
+Subjects::Subjects()
+{
+    /*zag[0]="123";zag1[0]=7;
+    zag[1]="321";zag1[1]=20;
+    ifstream fin;
+    col=2;
+    int i = 0;
+    string a;
+    fin.open("subjects.txt");
+    while (!fin.eof())
+    {
+        vector <string> vec;
+        for(int j=0;j<5;j++)
+        {
+            fin>>a;
+            vec.push_back(a);
 
+        }
+        tab.push_back(vec);
+        i++;
+    }
+    fin.close();
+    col = 4;
+    str = i;*/
+}
 int main()
 {
     int a = 5;
     Students n;
-    //n.show();
+    //Subjects w;
+    n.show();
+    //w.show();
 }
 
 /*
